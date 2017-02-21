@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="travisci.LaunchBuild" extends="xlrelease.PythonScript" label="Launch Travis CI Build">
+        <property name="iconLocation" default="travisci/travisci.jpeg" hidden="true" />
+        <property name="taskColor" hidden="true" default="#F8F4AE"/>
+        <property name="username" category="input" label="Username"/>
+        <property name="token" category="input" kind="string" password="true" />
+        <property name="project" category="input"/>
+        <property name="branch" default="master" category="input"/>
+        <property name="apiversion" default="3" category="input"/>
+        <property name="wait" category="input" label="Wait for build?" kind="boolean"/>
+        <property name="waitInterval" category="input" default="60" label="Wait Interval (sec)"/>
+    </type>
+    
+</synthetic>
