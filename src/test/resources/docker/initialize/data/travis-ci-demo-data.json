@@ -1,0 +1,293 @@
+/**
+ * THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+ * FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+ */
+
+[
+    {
+        "id": "Applications/Release265874366",
+        "type": "xlrelease.Release",
+        "$token": "ef80fbee-24c2-41c9-a4eb-639b7f0b2ef3",
+        "$createdBy": "admin",
+        "$createdAt": "2017-02-24T15:06:22.797-0700",
+        "$lastModifiedBy": "admin",
+        "$lastModifiedAt": "2017-02-24T15:11:07.184-0700",
+        "title": "Travis CI",
+        "scheduledStartDate": "2017-02-24T09:00:00-07:00",
+        "flagStatus": "OK",
+        "maxConcurrentReleases": 100,
+        "releaseTriggers": [],
+        "teams": [
+            {
+                "id": "Applications/Release265874366/Team579010813",
+                "type": "xlrelease.Team",
+                "teamName": "Release Admin",
+                "members": [],
+                "roles": [],
+                "permissions": [
+                    "release#edit",
+                    "release#start",
+                    "release#reassign_task",
+                    "template#view",
+                    "release#edit_security",
+                    "release#abort",
+                    "release#view",
+                    "release#edit_task"
+                ]
+            },
+            {
+                "id": "Applications/Release265874366/Team969351124",
+                "type": "xlrelease.Team",
+                "teamName": "Template Owner",
+                "members": [
+                    "admin"
+                ],
+                "roles": [],
+                "permissions": [
+                    "template#edit",
+                    "template#view",
+                    "template#edit_triggers",
+                    "template#edit_security",
+                    "template#create_release"
+                ]
+            }
+        ],
+        "memberViewers": [],
+        "roleViewers": [],
+        "attachments": [],
+        "phases": [
+            {
+                "id": "Applications/Release265874366/Phase832996810",
+                "type": "xlrelease.Phase",
+                "$token": "db630fe0-ddf5-430a-ab1f-7bc82ba87884",
+                "$createdBy": "admin",
+                "$createdAt": "2017-02-24T15:06:22.912-0700",
+                "$lastModifiedBy": "admin",
+                "$lastModifiedAt": "2017-02-24T15:09:23.153-0700",
+                "title": "Travis CI Testing",
+                "flagStatus": "OK",
+                "tasks": [
+                    {
+                        "id": "Applications/Release265874366/Phase832996810/Task863233310",
+                        "type": "xlrelease.CustomScriptTask",
+                        "$token": "1dedb4a8-045b-4226-96b7-1f8589c30455",
+                        "$createdBy": "admin",
+                        "$createdAt": "2017-02-24T15:06:44.404-0700",
+                        "$lastModifiedBy": "admin",
+                        "$lastModifiedAt": "2017-02-24T15:06:44.404-0700",
+                        "title": "Accounts",
+                        "flagStatus": "OK",
+                        "comments": [],
+                        "container": "Applications/Release265874366/Phase832996810",
+                        "attachments": [],
+                        "status": "PLANNED",
+                        "overdueNotified": false,
+                        "waitForScheduledStartDate": true,
+                        "hasBeenFlagged": false,
+                        "hasBeenDelayed": false,
+                        "failuresCount": 0,
+                        "variableMapping": {},
+                        "tags": [],
+                        "pythonScript": {
+                            "id": "Applications/Release265874366/Phase832996810/Task863233310/PythonScript",
+                            "type": "travisci.Accounts",
+                            "$token": "28fc1148-9cd9-418b-bb2b-bf0ea3141f90",
+                            "$createdBy": "admin",
+                            "$createdAt": "2017-02-24T15:06:44.405-0700",
+                            "$lastModifiedBy": "admin",
+                            "$lastModifiedAt": "2017-02-24T15:06:44.405-0700",
+                            "customScriptTask": "Applications/Release265874366/Phase832996810/Task863233310",
+                            "authentication": "Configuration/Custom/TravisCI"
+                        }
+                    },
+                    {
+                        "id": "Applications/Release265874366/Phase832996810/Task946556711",
+                        "type": "xlrelease.CustomScriptTask",
+                        "$token": "fa1ead67-fcba-4913-ab55-3ee643cd9170",
+                        "$createdBy": "admin",
+                        "$createdAt": "2017-02-24T15:09:22.868-0700",
+                        "$lastModifiedBy": "admin",
+                        "$lastModifiedAt": "2017-02-24T15:10:52.181-0700",
+                        "title": "Trigger Build",
+                        "flagStatus": "OK",
+                        "comments": [],
+                        "container": "Applications/Release265874366/Phase832996810",
+                        "attachments": [],
+                        "status": "PLANNED",
+                        "overdueNotified": false,
+                        "waitForScheduledStartDate": true,
+                        "hasBeenFlagged": false,
+                        "hasBeenDelayed": false,
+                        "failuresCount": 0,
+                        "variableMapping": {
+                            "pythonScript.request_id": "${REQUEST_ID}"
+                        },
+                        "tags": [],
+                        "pythonScript": {
+                            "id": "Applications/Release265874366/Phase832996810/Task946556711/PythonScript",
+                            "type": "travisci.TriggerBuild",
+                            "$token": "6fcc9e39-b9a1-49ca-9df1-ea0029b30dcd",
+                            "$createdBy": "admin",
+                            "$createdAt": "2017-02-24T15:09:22.871-0700",
+                            "$lastModifiedBy": "admin",
+                            "$lastModifiedAt": "2017-02-24T15:10:52.182-0700",
+                            "customScriptTask": "Applications/Release265874366/Phase832996810/Task946556711",
+                            "authentication": "Configuration/Custom/TravisCI",
+                            "project": "${PROJECT}",
+                            "branch": "master",
+                            "wait": true,
+                            "wait_interval": "60"
+                        }
+                    },
+                    {
+                        "id": "Applications/Release265874366/Phase832996810/Task427318484",
+                        "type": "xlrelease.CustomScriptTask",
+                        "$token": "c6e92ec8-2c32-4048-8930-7c9dfb3499d0",
+                        "$createdBy": "admin",
+                        "$createdAt": "2017-02-24T15:07:05.397-0700",
+                        "$lastModifiedBy": "admin",
+                        "$lastModifiedAt": "2017-02-24T15:09:53.998-0700",
+                        "title": "Request Information",
+                        "flagStatus": "OK",
+                        "comments": [],
+                        "container": "Applications/Release265874366/Phase832996810",
+                        "attachments": [],
+                        "status": "PLANNED",
+                        "overdueNotified": false,
+                        "waitForScheduledStartDate": true,
+                        "hasBeenFlagged": false,
+                        "hasBeenDelayed": false,
+                        "failuresCount": 0,
+                        "variableMapping": {
+                            "pythonScript.build_id": "${BUILD_ID}"
+                        },
+                        "tags": [],
+                        "pythonScript": {
+                            "id": "Applications/Release265874366/Phase832996810/Task427318484/PythonScript",
+                            "type": "travisci.RequestInfo",
+                            "$token": "3825dd61-110a-417e-a3d6-b45c74a99426",
+                            "$createdBy": "admin",
+                            "$createdAt": "2017-02-24T15:07:05.397-0700",
+                            "$lastModifiedBy": "admin",
+                            "$lastModifiedAt": "2017-02-24T15:09:53.999-0700",
+                            "customScriptTask": "Applications/Release265874366/Phase832996810/Task427318484",
+                            "authentication": "Configuration/Custom/TravisCI",
+                            "request_id": "${REQUEST_ID}"
+                        }
+                    },
+                    {
+                        "id": "Applications/Release265874366/Phase832996810/Task920822159",
+                        "type": "xlrelease.CustomScriptTask",
+                        "$token": "8011db37-a818-4491-b9d8-ee0f09938322",
+                        "$createdBy": "admin",
+                        "$createdAt": "2017-02-24T15:07:13.837-0700",
+                        "$lastModifiedBy": "admin",
+                        "$lastModifiedAt": "2017-02-24T15:11:07.134-0700",
+                        "title": "Build Information",
+                        "flagStatus": "OK",
+                        "comments": [],
+                        "container": "Applications/Release265874366/Phase832996810",
+                        "attachments": [],
+                        "status": "PLANNED",
+                        "overdueNotified": false,
+                        "waitForScheduledStartDate": true,
+                        "hasBeenFlagged": false,
+                        "hasBeenDelayed": false,
+                        "failuresCount": 0,
+                        "variableMapping": {},
+                        "tags": [],
+                        "pythonScript": {
+                            "id": "Applications/Release265874366/Phase832996810/Task920822159/PythonScript",
+                            "type": "travisci.BuildInfo",
+                            "$token": "5df565d8-0172-4ff1-b5eb-f3c25f1d15f9",
+                            "$createdBy": "admin",
+                            "$createdAt": "2017-02-24T15:07:13.837-0700",
+                            "$lastModifiedBy": "admin",
+                            "$lastModifiedAt": "2017-02-24T15:11:07.135-0700",
+                            "customScriptTask": "Applications/Release265874366/Phase832996810/Task920822159",
+                            "authentication": "Configuration/Custom/TravisCI",
+                            "build_id": "${BUILD_ID}"
+                        }
+                    }
+                ],
+                "release": "Applications/Release265874366",
+                "status": "PLANNED",
+                "color": "#009CDB"
+            }
+        ],
+        "queryableStartDate": "2017-02-24T09:00:00-07:00",
+        "realFlagStatus": "OK",
+        "status": "TEMPLATE",
+        "tags": [],
+        "variables": [
+            {
+                "id": "Applications/Release265874366/Variable65853845",
+                "type": "xlrelease.StringVariable",
+                "$token": "1012c8b2-53fa-4145-8d86-e227e835c2bb",
+                "$createdBy": "admin",
+                "$createdAt": "2017-02-24T15:07:34.298-0700",
+                "$lastModifiedBy": "admin",
+                "$lastModifiedAt": "2017-02-24T15:07:34.298-0700",
+                "key": "REQUEST_ID",
+                "requiresValue": false,
+                "showOnReleaseStart": false,
+                "label": ""
+            },
+            {
+                "id": "Applications/Release265874366/Variable527369678",
+                "type": "xlrelease.StringVariable",
+                "$token": "a6490dd1-c0b4-4818-ad0e-a990fb3edd86",
+                "$createdBy": "admin",
+                "$createdAt": "2017-02-24T15:07:42.066-0700",
+                "$lastModifiedBy": "admin",
+                "$lastModifiedAt": "2017-02-24T15:07:42.066-0700",
+                "key": "BUILD_ID",
+                "requiresValue": true,
+                "showOnReleaseStart": true
+            },
+            {
+                "id": "Applications/Release265874366/Variable883312123",
+                "type": "xlrelease.StringVariable",
+                "$token": "bd2b8206-3872-444d-bd56-7bd791f9a1b7",
+                "$createdBy": "admin",
+                "$createdAt": "2017-02-24T15:10:27.819-0700",
+                "$lastModifiedBy": "admin",
+                "$lastModifiedAt": "2017-02-24T15:10:27.819-0700",
+                "key": "PROJECT",
+                "requiresValue": true,
+                "showOnReleaseStart": true,
+                "label": "Project To Build"
+            }
+        ],
+        "calendarPublished": false,
+        "tutorial": false,
+        "abortOnFailure": false,
+        "allowConcurrentReleasesFromTrigger": true,
+        "runningTriggeredReleasesCount": 0,
+        "createdFromTrigger": false,
+        "extensions": [],
+        "$metadata": {
+            "security": {
+                "permissions": [
+                    "template#view",
+                    "template#edit_triggers",
+                    "template#edit_security",
+                    "template#edit",
+                    "template#create_release"
+                ],
+                "teams": [
+                    "Template Owner"
+                ]
+            },
+            "globalVariables": {
+                "id": "Configuration/variables/global",
+                "type": "xlrelease.GlobalVariables",
+                "$token": "c0551d63-3754-4db9-8c1c-d60d217aad09",
+                "$createdAt": "2017-02-23T15:51:14.415-0700",
+                "$lastModifiedAt": "2017-02-23T15:51:14.415-0700",
+                "variables": []
+            }
+        }
+    }
+]

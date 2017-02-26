@@ -1,23 +1,51 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!--
-
     THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
     IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
     FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
-
 -->
 <synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
 
-    <type type="travisci.LaunchBuild" extends="xlrelease.PythonScript" label="Launch Travis CI Build">
-        <property name="iconLocation" default="travisci/travisci.jpeg" hidden="true" />
-        <property name="taskColor" hidden="true" default="#F8F4AE"/>
-        <property name="username" category="input" label="Username"/>
-        <property name="token" category="input" kind="string" password="true" />
+    <type type="travisci.Authentication" extends="xlrelease.Configuration" label="Travis CI Authentication Configuration">
+        <property name="url" label="Travis CI URL" required="true" description="Travis CI API URL."/>
+        <property name="username" label="Username" required="true" description="Username for authentication on Travis CI."/>
+        <property name="token" label="Access Token" required="true" password="true" description="Access Token for authentication on Travis CI."/>
+        <property name="apiversion" default="3" hidden="true"/>
+    </type>
+
+    <type type="travisci.Task" extends="xlrelease.PythonScript" virtual="true">
+        <!-- Plugin -->
+        <property name="iconLocation" hidden="true" default="travisci/travisci.png"/>
+        <property name="taskColor" hidden="true" default="#229922"/>
+        <property name="authentication" category="input" label="Authentication" description="The Travis CI Authentication Configuration to utilize." required="true" referenced-type="travisci.Authentication" kind="ci"/>
+    </type>
+
+    <type type="travisci.Accounts" extends="travisci.Task" label="Accounts">
+        <!-- Outputs -->
+        <property name="accounts" category="output" label="Accounts" description="Accounts information for the specified Access Key." kind="string" />
+    </type>
+
+    <type type="travisci.RequestInfo" extends="travisci.Task" label="Request Information">
+        <property name="request_id" category="input" label="Request ID"/>
+        <!-- Outputs -->
+        <property name="request_info" category="output" label="Request Information" description="Request information for the specified Request ID." kind="string" />
+        <property name="build_id" category="output" kind="string" />
+    </type>
+
+    <type type="travisci.BuildInfo" extends="travisci.Task" label="Build Information">
+        <property name="build_id" category="input" label="Build ID"/>
+        <!-- Outputs -->
+        <property name="build_info" category="output" label="Build Information" description="Build information for the specified Build ID." kind="string" />
+        <property name="build_state" category="output" label="Build State" />
+    </type>
+
+    <type type="travisci.TriggerBuild" extends="travisci.Task" label="Trigger Build">
         <property name="project" category="input"/>
         <property name="branch" default="master" category="input"/>
-        <property name="apiversion" default="3" category="input"/>
         <property name="wait" category="input" label="Wait for build?" kind="boolean"/>
-        <property name="waitInterval" category="input" default="60" label="Wait Interval (sec)"/>
+        <property name="wait_interval" category="input" default="60" label="Wait Interval (sec)"/>
+        <!-- Outputs -->
+        <property name="request_id" category="output" kind="string" />
     </type>
-    
+
 </synthetic>
