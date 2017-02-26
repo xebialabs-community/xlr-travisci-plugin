@@ -1,9 +1,4 @@
 language: java
-notifications:
-  hipchat:
-    rooms:
-      secure: gmf1OZkC8SJdj5u1SZoGeDMheC91jbva3XBGkg2f0c4yZd5lRrpLpct4mb/Bly1akmkhITam7xZ2RipT9JHzlvOrroZDyLvaZZBVRkV92wFahGnj3xjqZ/jrRU6aw+M3F0BxD6OiSTd7pqAV+ygJi/U5qNKeSnjJITlsYOJ5tdWPrzqA4LlRGFGtn+aJd9rm33ZN0Q5oxN20pJFPyisA62dHQzQp+/oklmt6es5fnifAd4GU4K0AelwbO9Yald+extbXOIszFkNKxLmlQ6L2okPcgmKviM3dOsNH0cyuHCH7AIdgGGQy6cPFEJkEdX+5hAtTrq4M/HQcy/YlcNiRyKfMvIsb3d+3SikcdxuInHqC35Wf2Nb/aWmf8Xg9U9GNTKf5XsM+8GJQE48m1qgKeHA/nqDvWT7FmK9LrqHfAFYhu1INxn3rRLLwXJZgqR3DU7rRLtJnXow17woz+rHhk3prcvmehoGlGBR2SrJr9w46djCekaR+XLO2cPJ/CSVhZg0YLGxg2Il/ents08lbiPdhgUfC3x4nVokXvBh9SkiPRZdmTVJH9fTUN2Mn897TJMDthfDz03Y/oFDnSa8uGKEIefl5Lj34dUuHNPr9HX7rVgJre07UClzvWdNY1ZKIp07DQsfg6iPpsUvRJR0x7nKENun9PawWrAcuKhlJL1c=
-      notify: true
 deploy:
   provider: releases
   api_key:
@@ -14,3 +9,7 @@ deploy:
     all_branches: true
     tags: true
     repo: xebialabs-community/xlr-travisci-plugin
+notifications:
+  hipchat:
+    rooms:
+      secure: Ne0/J9sDiLIm7kPIWVzXLQKvY3/qXRBbe6l3O3L+s3GuR0qkkWkpM9X6TR8+ICcWD462E2+tOE0HR9hnlipKAVsDYJiNh3/CEMLT7eqeWeHqwIIAP7uo+Xudyzny1zyRGYCuXnmL3hQIBLXxoA0jDFDQVt04mN3eqdH/Ta9+MUlHCGwVnz2X+HzFF5dbTWlCU087irv33p093A2T0v5Ou5JB6Vhb/nDyRSOvaWqDzEin5j/scz97KucxzSxZDVRiz6oTnIbBtmtvCzFTqgWqYCW9RBvJ2HnjaucuPp/doyaS1nlkuWdkDgffv+FwI4QZ/vjmDGlcayo5K11P7WXW/dLQYtXORc+PNFHJKvWqfMePtfw9FyXVwwS4oL0j+EcJTEJMBjzna1v4ioRdDsbKB/xwkPegtOgGM/KVHmWB2uM0Z3pg3dAejCBcftZZYgvkyuHAO87Y47RM+93Uym+spzoGJzH1fDbe8qBd8vnyk80hUzqbNSfoBadOlZMyVMsB39V0loy607R/b7syhaUoWQ5imFMI0vOaK30cADw+PxSwTZyg9ImzNLXXmEE7noQsMbOymCiyLMla4zmEAXKPMWSehGJfQOU/0IRRmVb+0aR3U0Gpw83TAJKN9Sjs38GvhASvr5N4AJDbc13Q6T9ZUFUvZlQgzkijdsM8vjD20NA=
