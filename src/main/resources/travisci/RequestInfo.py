@@ -4,10 +4,6 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 
-#!/usr/bin/python
-# Launch a Travis CI Build
-
-
 from travisci.TravisCIClientUtil import TravisCIClientUtil
 
 travis_ci_client = TravisCIClientUtil.create_travis_ci_client(authentication)

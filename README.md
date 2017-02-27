@@ -5,9 +5,15 @@ This plugin offers an interface from XL Release to Travis CI.
 # CI status #
 
 [![Build Status][xlr-travisci-plugin-travis-image]][xlr-travisci-plugin-travis-url]
+[![Codacy Badge][xlr-travisci-plugin-codacy-image]][xlr-travisci-plugin-codacy-url]
+[![Code Climate][xlr-travisci-plugin-code-climate-image]][xlr-travisci-plugin-code-climate-url]
 
 [xlr-travisci-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-travisci-plugin.svg?branch=master
 [xlr-travisci-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xlr-travisci-plugin
+[xlr-travisci-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/4f1722016821400d83ae3a8848d14729
+[xlr-travisci-plugin-codacy-url]: https://www.codacy.com/app/erasmussen39/xlr-travisci-plugin
+[xlr-travisci-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-travisci-plugin/badges/gpa.svg
+[xlr-travisci-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-travisci-plugin
 
 # Development #
 
