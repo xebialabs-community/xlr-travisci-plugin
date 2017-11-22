@@ -2,11 +2,11 @@
 
 This plugin offers an interface from XL Release to Travis CI. 
 
-# CI status #
-
 [![Build Status][xlr-travisci-plugin-travis-image]][xlr-travisci-plugin-travis-url]
 [![Codacy Badge][xlr-travisci-plugin-codacy-image]][xlr-travisci-plugin-codacy-url]
 [![Code Climate][xlr-travisci-plugin-code-climate-image]][xlr-travisci-plugin-code-climate-url]
+[![License: MIT][xlr-travisci-plugin-license-image] ][xlr-travisci-plugin-license-url]
+[![Github All Releases][xlr-travisci-plugin-downloads-image] ]()
 
 [xlr-travisci-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-travisci-plugin.svg?branch=master
 [xlr-travisci-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xlr-travisci-plugin
@@ -14,6 +14,10 @@ This plugin offers an interface from XL Release to Travis CI.
 [xlr-travisci-plugin-codacy-url]: https://www.codacy.com/app/erasmussen39/xlr-travisci-plugin
 [xlr-travisci-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-travisci-plugin/badges/gpa.svg
 [xlr-travisci-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-travisci-plugin
+[xlr-travisci-plugin-license-image]: https://img.shields.io/badge/License-MIT-yellow.svg
+[xlr-travisci-plugin-license-url]: https://opensource.org/licenses/MIT
+[xlr-travisci-plugin-downloads-image]: https://img.shields.io/github/downloads/xebialabs-community/xlr-travisci-plugin/total.svg
+
 
 # Development #
 

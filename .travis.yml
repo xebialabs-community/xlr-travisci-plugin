@@ -3,7 +3,8 @@ deploy:
   provider: releases
   api_key:
     secure: H1wfikNc0/s8NXDGqWH9JDgA0TsLdtZ1Wbvn9b2LFOBjSnRj4rJyvwSm/6iXMq9iFK7N9RDI4jzffnPqTfPwsr97I787jkoeUkgU4chH9AWWyv8dNhWlsuU0V3mOYAwpuZ6BXOlvSzcYdAFAY0HYtGIQyHSVLI4oGuSB22LcIu26STZl6NVlrqzDUyoSBlvRzKlhNRMllPKzQTrxqDrnxUtSdg3b1I/BJvt4h4gQywpbdMzc3pI6rYoHWVFgnWA1ZkuMsAhFNzm7DVoh53QCxiHsocRhZcvzxQ/OpdNnheGL8sMLt7+JBEMcVkKueGLfePb5WT5AQlGMMR+bmoBgWtzznbMkkqSdeRJw6fuzLOu20O9bWg7bWaNyFoIQA3lO6RWbx/INO5tc++jOfcdkOmPH1//IQM8ZokV91qp4TJGiUV4GnTZEuav6bivCLmbge05OWpSioBYGfsVNwjxEmM3QcePZuAoOfuq7Fi38+/ykRBL714BkWspSHkuwrtgOk0/66CCoTpymc/VvJxqKL6l2QrBX56NZpGzrmF6GOfqihF/fPZPYKqnFIFIXVYTVYShnuhgvHWrReielR6ywPH4hYjhoVW9Uu0MgbD0Yxqqg/UUKuPxQpTRYtgk+JN4LrMgdT9iXpscfnA6MunvquFkJftL0LHo0jQQF+1FAw9M=
-  file: build/libs/xlr-travisci-plugin-1.0.0.jar
+  file_glob: true
+  file: build/libs/*
   skip_cleanup: true
   on:
     all_branches: true
