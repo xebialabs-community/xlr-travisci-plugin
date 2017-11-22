@@ -11,5 +11,5 @@
 from travisci.TravisCIClientUtil import TravisCIClientUtil
 
 travis_ci_client = TravisCIClientUtil.create_travis_ci_client(authentication)
-request_info = travis_ci_client.trigger_build(project, branch, wait, wait_interval)
+request_info = travis_ci_client.trigger_build(task, organization, project, branch, wait, wait_interval)
 request_id = request_info["request"]["id"]

@@ -10,6 +10,7 @@
 
 import json, time, urllib2
 
+
 class TravisCIClient(object):
     def __init__(self, authentication):
         self.url = authentication["url"]
@@ -17,9 +18,9 @@ class TravisCIClient(object):
         self.token = authentication["token"]
         self.apiversion = authentication["apiversion"]
         self.headers = [
-            ('Content-type' , 'application/json'),
-            ('Accept' , 'application/vnd.travis-ci.2+json'),
-            ('Authorization' , 'token %s' % self.token)]
+            ('Content-type', 'application/json'),
+            ('Accept', 'application/vnd.travis-ci.2+json'),
+            ('Authorization', 'token %s' % self.token)]
 
     @staticmethod
     def create_client(authentication):
@@ -33,30 +34,34 @@ class TravisCIClient(object):
         response_data = json.load(response)
         return response_data["accounts"]
 
-    def trigger_build(self, project, branch, wait, wait_interval):
-        data = {'request' : {'branch' : branch}}
-        trigger_build_endpoint = "%s/repo/%s%%2f%s/requests" % (self.url, self.username, project)
+    def trigger_build(self, task, organization, project, branch, wait, wait_interval):
+        data = {'request': {'branch': branch}}
+        trigger_build_endpoint = "%s/repo/%s%%2f%s/requests" % (
+        self.url, organization if organization else self.username, project)
         build_headers = self.headers[:]
         build_headers.append(('Travis-API-Version', self.apiversion))
         response = self.open_url(trigger_build_endpoint, json.dumps(data), build_headers)
         if not (response.getcode() == 200 or 202):
-            raise Exception("Failed to trigger build for project [%s] on branch [%s]. Response code: %s" % (project, branch, response.getcode()))
+            raise Exception("Failed to trigger build for project [%s] on branch [%s]. Response code: %s" % (
+            project, branch, response.getcode()))
         build_request_info = json.load(response)
         if wait:
-            build_request_info = self.wait_for_build_start(build_request_info)
+            build_request_info = self.wait_for_build_start(build_request_info, wait_interval)
             return self.wait_for_build(build_request_info, wait_interval)
         return build_request_info
 
-    def wait_for_build_start(self, build_request_info):
-        while (True):
+    def wait_for_build_start(self, build_request_info, wait_interval):
+        time.sleep(float(wait_interval))
+        while True:
             request_info = self.request_info(build_request_info["request"]["id"])
             if not "build_id" in request_info["request"]:
-                time.sleep(10)
+                time.sleep(float(wait_interval))
             else:
                 return request_info
 
     def wait_for_build(self, build_request_info, wait_interval):
-        while (True):
+        time.sleep(float(wait_interval))
+        while True:
             build_info = self.get_build_info(build_request_info["request"]["build_id"])
             state = build_info["build"]["state"]
             if state == "passed":
@@ -67,10 +72,14 @@ class TravisCIClient(object):
                 time.sleep(float(wait_interval))
 
     def request_info(self, request_id):
-        return self.get_response_for_endpoint(self.url, "requests", request_id, "Failed to retrieve request information for the specified request_id [%s]" % (request_id))
+        return self.get_response_for_endpoint(self.url, "requests", request_id,
+                                              "Failed to retrieve request information for the specified request_id [%s]" % (
+                                              request_id))
 
     def get_build_info(self, build_id):
-        return self.get_response_for_endpoint(self.url, "builds", build_id, "Failed to retrieve build information for the specified build_id [%s]" % (build_id))
+        return self.get_response_for_endpoint(self.url, "builds", build_id,
+                                              "Failed to retrieve build information for the specified build_id [%s]" % (
+                                              build_id))
 
     def get_response_for_endpoint(self, url, endpoint, object_id, error_message):
         full_endpoint_url = "%s/%s/%s" % (url, endpoint, object_id)

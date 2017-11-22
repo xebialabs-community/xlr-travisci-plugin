@@ -16,7 +16,7 @@
     <type type="travisci.Authentication" extends="xlrelease.Configuration" label="Travis CI Authentication Configuration">
         <property name="url" label="Travis CI URL" required="true" description="Travis CI API URL."/>
         <property name="username" label="Username" required="true" description="Username for authentication on Travis CI."/>
-        <property name="token" label="Access Token" required="true" password="true" description="Access Token for authentication on Travis CI."/>
+        <property name="token" label="Access Token" required="true" password="true" description="Access Token for authentication on Travis CI. Can be obtained via Travis CLI using `travis token`"/>
         <property name="apiversion" default="3" hidden="true"/>
     </type>
 
@@ -47,7 +47,8 @@
     </type>
 
     <type type="travisci.TriggerBuild" extends="travisci.Task" label="Trigger Build">
-        <property name="project" category="input"/>
+        <property name="organization" label="Organization Name" category="input" required="false" description="Name of the organization the repository is part of. If not defined Authentication.username will be used."/>
+        <property name="project" label="Repository Name" category="input" description="Name of the repository to build"/>
         <property name="branch" default="master" category="input"/>
         <property name="wait" category="input" label="Wait for build?" kind="boolean"/>
         <property name="wait_interval" category="input" default="60" label="Wait Interval (sec)"/>
