@@ -13,3 +13,25 @@ from travisci.TravisCIClientUtil import TravisCIClientUtil
 travis_ci_client = TravisCIClientUtil.create_travis_ci_client(authentication)
 build_info = travis_ci_client.get_build_info(build_id)
 build_state = build_info["build"]["state"]
+
+
+project = build_info["build"]["config"]["deploy"]["true"]["repo"]
+build_number = build_info["build"]["number"]
+build_start_date = build_info["build"]["started_at"]
+build_end_date = build_info["build"]["finished_at"]
+build_duration = build_info["build"]["duration"]
+
+myBuildRecord = taskReportingApi.newBuildRecord()
+myBuildRecord.targetId = task.id
+
+myBuildRecord.project =  project
+myBuildRecord.build = build_number
+myBuildRecord.build_url = "%s/%s#%s" % (authentication["url"], "builds", build_number)
+myBuildRecord.serverUrl = authentication["url"]
+myBuildRecord.serverUser = authentication["username"]
+myBuildRecord.outcome = build_state
+myBuildRecord.startDate = build_start_date
+myBuildRecord.endDate = build_end_date
+myBuildRecord.duration = str(build_duration)
+
+taskReportingApi.addRecord(myBuildRecord, True)
